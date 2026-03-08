@@ -17,23 +17,17 @@
       </div>
       <h1>GitHub Issues Tracker</h1>
       <p class="auth-subtitle">Sign in to manage your issues</p>
-
       <label class="field-label">Username</label>
       <input class="auth-input" type="text" id="inp-user" placeholder="Enter Username" autocomplete="username"/>
       <div class="field-hint">Default: admin</div>
-
       <label class="field-label">Password</label>
       <input class="auth-input" type="password" id="inp-pass" placeholder="Enter Password" autocomplete="current-password"/>
       <div class="field-hint">Default: admin123</div>
-
       <button class="btn-signin" onclick="doLogin()">Sign in</button>
       <div class="auth-error" id="auth-error"></div>
-
       <div class="or-divider">OR</div>
       <div class="demo-box">
-        <strong>Demo Credentials</strong>
-        Username: <span class="demo-val">admin</span><br/>
-        Password: <span class="demo-val">admin123</span>
+        <strong>Demo Credentials</strong>Username: <span class="demo-val">admin</span><br/>Password: <span class="demo-val">admin123</span>
       </div>
     </div>
   </div>
@@ -51,42 +45,47 @@
           <input class="search-input" type="text" id="search-input" placeholder="Search issues..." oninput="handleSearch(this.value)"/>
         </div>
         <button class="btn-new-issue">
-          <img src="images/plus.png" width="14" height="14" alt="plus"/>
-          New Issue
-        </button>
-      </div>
-    </nav>
-
-    <main>
-      <div class="section-header">
-        <div class="section-left">
-          <div class="issues-icon">
-            <img src="images/Aperture.png" width="18" height="18" alt="issues"/>
+          <img src="images/plus.png" width="14" height="14" alt="plus"/>New Issue</button>
+        </div>
+      </nav>
+      <main>
+        <div class="section-header">
+          <div class="section-left">
+            <div class="issues-icon">
+              <img src="images/Aperture.png" width="18" height="18" alt="issues"/>
+            </div>
+            <div>
+              <div class="issue-count-text" id="issue-count">Issues</div>
+              <div class="issue-sub">Track and manage your project issues</div>
+            </div>
           </div>
-          <div>
-            <div class="issue-count-text" id="issue-count">Issues</div>
-            <div class="issue-sub">Track and manage your project issues</div>
+          <div class="legend">
+            <div class="legend-item"><div class="dot dot-open"></div>Open</div>
+            <div class="legend-item"><div class="dot dot-closed"></div>Closed</div>
           </div>
         </div>
-        <div class="legend">
-          <div class="legend-item"><div class="dot dot-open"></div>Open</div>
-          <div class="legend-item"><div class="dot dot-closed"></div>Closed</div>
-        </div>
-      </div>
-
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="all"    onclick="switchTab('all')">All</button>
-        <button class="tab-btn"        data-tab="open"   onclick="switchTab('open')">Open</button>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="all"    onclick="switchTab('all')">All</button>
+          <button class="tab-btn"        data-tab="open"   onclick="switchTab('open')">Open</button>
         <button class="tab-btn"        data-tab="closed" onclick="switchTab('closed')">Closed</button>
       </div>
-
       <div class="cards-grid" id="cards-grid">
         <div class="spinner-wrap"><div class="spinner"></div></div>
       </div>
     </main>
   </div>
+  
+  <!--MODAl-->
+  <div class="modal-overlay" id="modal-overlay" onclick="overlayClick(event)">
+    <div class="modal" id="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">Loading…</div>
+        <button class="modal-close" onclick="closeModal()"><img src="images/delete.png" width="20" height="20" alt=""></button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
 
-
-<script src="just.js"></script>
+  <script src="just.js"></script>
 </body>
 </html>
