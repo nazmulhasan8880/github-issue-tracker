@@ -44,3 +44,62 @@ function switchTab(tab) {
   document.getElementById('search-input').value = '';
   renderCards();
 }
+
+
+/* SEARCH */
+function handleSearch(q) {
+  clearTimeout(searchTimer);
+  if (!q.trim()) { renderCards(); return; }
+  searchTimer = setTimeout(async () => {
+    showSpinner();
+    try {
+      const res  = await fetch(`${API}/issues/search?q=${encodeURIComponent(q)}`);
+      const json = await res.json();
+      const data = json.data || [];
+      const filtered = currentTab === 'all' ? data : data.filter(i => i.status === currentTab);
+      renderGrid(filtered);
+    } catch (err) { renderCards(); }
+  }, 350);
+}
+
+/* RENDER */
+function showSpinner() {
+  document.getElementById('cards-grid').innerHTML =
+    '<div class="spinner-wrap"><div class="spinner"></div></div>';
+}
+
+function renderCards() {
+  const list = currentTab === 'all'
+    ? allIssues
+    : allIssues.filter(i => i.status === currentTab);
+  renderGrid(list);
+}
+
+function renderGrid(issues) {
+  const grid = document.getElementById('cards-grid');
+  document.getElementById('issue-count').textContent = issues.length + ' Issues';
+  if (!issues.length) {
+    grid.innerHTML = '<div class="empty-state">No issues found.</div>';
+    return;
+  }
+  grid.innerHTML = issues.map(i => `
+    <div class="card${i.status === 'closed' ? ' closed-card' : ''}" onclick="openModal(${i.id})">
+      <div class="card-body">
+        <div class="card-top">
+          <span class="badge ${i.status === 'open' ? 'status-open' : 'status-closed'}">
+            ${i.status === 'open' ? '`<img src="images/Open-Status.png" width="9" height="9" alt="issues"/>`Open' : '`<img src="images/Closed-Status.png" width="9" height="9" alt="issues"/>`Closed'}
+          </span>
+          <span class="badge ${priClass(i.priority)}">${h(i.priority)}</span>
+        </div>
+        <div class="card-title">${h(i.title)}</div>
+        <div class="card-desc">${h(i.description)}</div>
+        <div class="card-labels">${(i.labels || []).map(l => `
+          <span class="label-chip">${labelImg(l)}<span>${h(l)}</span></span>`).join('')}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta">By <b>${h(i.author)}</b></div>
+        <div class="card-meta">${fmtDate(i.createdAt)}</div>
+      </div>
+    </div>`).join('');
+}
