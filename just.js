@@ -4,7 +4,7 @@ let allIssues  = [];
 let currentTab = 'all';
 let searchTimer = null;
 
-/* ── LOGIN ── */
+/*  LOGIN  */
 function doLogin() {
   const u = document.getElementById('inp-user').value.trim();
   const p = document.getElementById('inp-pass').value.trim();
@@ -21,3 +21,26 @@ function doLogin() {
 
 document.getElementById('inp-pass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 document.getElementById('inp-user').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+/*  LOAD ALL  */
+async function loadIssues() {
+  showSpinner();
+  try {
+    const res  = await fetch(`${API}/issues`);
+    const json = await res.json();
+    allIssues  = json.data || [];
+    renderCards();
+  } catch (err) {
+    document.getElementById('cards-grid').innerHTML =
+      '<div class="empty-state">Failed to load issues. Please check your connection.</div>';
+  }
+}
+
+/* TABS */
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('search-input').value = '';
+  renderCards();
+}

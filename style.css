@@ -18,7 +18,7 @@
 }
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;}
 
-/* ──────── AUTH ──────── */
+/*-AUTH-*/
 #auth-page{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F8FAFC;padding:16px;}
 .auth-card{background:#FFFFFF;border-radius:16px;padding:40px 36px;width:100%;max-width:360px;box-shadow:0 20px 60px gray ;text-align:center;}
 .auth-logo{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
@@ -53,3 +53,29 @@ nav{height:60px;background:#FFFFFF;border-bottom:1px solid var(--border);display
 .search-input:focus{border-color:var(--primary);}
 .btn-new-issue{background:var(--primary);color:#FFFFFF;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);display:flex;align-items:center;gap:6px;white-space:nowrap;transition:background .2s;}
 .btn-new-issue:hover{background:var(--primary-hover);}
+
+
+/* MAIN */
+main{padding:28px 24px;flex:1;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+.section-left{display:flex;align-items:center;gap:12px;}
+.issues-icon{width:36px;height:36px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.issue-count-text{font-size:18px;font-weight:800;}
+.issue-sub{font-size:13px;color:var(--text-muted);}
+.legend{display:flex;gap:16px;}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;}
+.dot{width:8px;height:8px;border-radius:50%;}
+.dot-open{background:var(--open-color);}
+.dot-closed{background:var(--closed-color);}
+
+/* TABS */
+.tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:20px;}
+.tab-btn{padding:8px 20px;font-size:14px;font-weight:600;font-family:var(--font);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;color:var(--text-muted);transition:color .2s,border-color .2s;}
+.tab-btn:hover{color:var(--text);}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary);}
+
+/* GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media(max-width:1100px){.cards-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:780px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.cards-grid{grid-template-columns:1fr;}}

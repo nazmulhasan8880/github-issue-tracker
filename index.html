@@ -57,6 +57,36 @@
       </div>
     </nav>
 
+    <main>
+      <div class="section-header">
+        <div class="section-left">
+          <div class="issues-icon">
+            <img src="images/Aperture.png" width="18" height="18" alt="issues"/>
+          </div>
+          <div>
+            <div class="issue-count-text" id="issue-count">Issues</div>
+            <div class="issue-sub">Track and manage your project issues</div>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><div class="dot dot-open"></div>Open</div>
+          <div class="legend-item"><div class="dot dot-closed"></div>Closed</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="all"    onclick="switchTab('all')">All</button>
+        <button class="tab-btn"        data-tab="open"   onclick="switchTab('open')">Open</button>
+        <button class="tab-btn"        data-tab="closed" onclick="switchTab('closed')">Closed</button>
+      </div>
+
+      <div class="cards-grid" id="cards-grid">
+        <div class="spinner-wrap"><div class="spinner"></div></div>
+      </div>
+    </main>
+  </div>
+
+
 <script src="just.js"></script>
 </body>
 </html>
