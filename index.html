@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- ══ LOGIN PAGE ══ -->
+  <!--LOGIN PAGE-->
   <div id="auth-page">
     <div class="auth-card">
       <div class="auth-logo">
@@ -37,6 +37,25 @@
       </div>
     </div>
   </div>
+
+  <!--APP PAGE-->
+  <div id="app-page">
+    <nav>
+      <div class="nav-brand">
+        <img src="images/github-logo.png" width="22" height="22" alt="GitHub" style="flex-shrink:0;"/>
+        <span>GitHub Issues Tracker</span>
+      </div>
+      <div class="nav-right">
+        <div class="search-wrap">
+          <img class="search-icon" src="https://api.iconify.design/lucide/search.svg?color=%236b7280" width="14" height="14" alt="search"/>
+          <input class="search-input" type="text" id="search-input" placeholder="Search issues..." oninput="handleSearch(this.value)"/>
+        </div>
+        <button class="btn-new-issue">
+          <img src="images/plus.png" width="14" height="14" alt="plus"/>
+          New Issue
+        </button>
+      </div>
+    </nav>
 
 <script src="just.js"></script>
 </body>
