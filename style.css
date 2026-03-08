@@ -1,0 +1,41 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --primary:#A855F7;
+  --primary-hover:#6d28d9;
+  --primary-light:#ede9fe;
+  --open-color:#00A96E;
+  --open-bg:#dcfce7;
+  --open-border:#22c55e;
+  --closed-color:#A855F7;
+  --closed-bg:#ede9fe;
+  --closed-border:#7c3aed;
+  --bg:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#1F2937;
+  --text-muted:#6b7280;
+  --border:#e5e7eb;
+  --font:'Geist',sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* ──────── AUTH ──────── */
+#auth-page{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F8FAFC;padding:16px;}
+.auth-card{background:#FFFFFF;border-radius:16px;padding:40px 36px;width:100%;max-width:360px;box-shadow:0 20px 60px gray ;text-align:center;}
+.auth-logo{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.auth-logo img{width:32px;height:32px;}
+.nav-brand img{width:22px;height:22px;flex-shrink:0;}
+.issues-icon img{width:18px;height:18px;}
+.label-chip img{flex-shrink:0;width:10px;height:10px;}
+.auth-card h1{font-size:20px;font-weight:800;margin-bottom:4px;}
+.auth-subtitle{font-size:13px;color:var(--text-muted);margin-bottom:28px;}
+.field-label{display:block;text-align:left;font-size:12px;font-weight:600;margin-bottom:5px;color:#1F2937;}
+.auth-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--font);outline:none;transition:border-color .2s;margin-bottom:3px;}
+.auth-input:focus{border-color:var(--primary);}
+.field-hint{font-size:11px;color:var(--text-muted);text-align:left;margin-bottom:14px;}
+.btn-signin{width:100%;padding:11px;background:var(--primary);color:#FFFFFF;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);transition:background .2s;margin-top:4px;}
+.btn-signin:hover{background:var(--primary-hover);}
+.or-divider{color:var(--text-muted);font-size:12px;margin:18px 0;}
+.demo-box{background:#F8FAFC;border:1px solid var(--border);border-radius:8px;padding:12px 14px;text-align:left;font-size:12px;color:#1F2937;line-height:2;}
+.demo-box strong{display:block;margin-bottom:2px;}
+.demo-val{color:var(--primary);font-weight:700;}
+.auth-error{color:#602fa5;font-size:12px;margin-top:8px;min-height:16px;text-align:left;}

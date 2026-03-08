@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github-Issue-Tracker</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub Issues Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <p>good</p>
+
+  <!-- ══ LOGIN PAGE ══ -->
+  <div id="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <img src="images/github-logo.png" width="32" height="32" alt="GitHub"/>
+      </div>
+      <h1>GitHub Issues Tracker</h1>
+      <p class="auth-subtitle">Sign in to manage your issues</p>
+
+      <label class="field-label">Username</label>
+      <input class="auth-input" type="text" id="inp-user" placeholder="Enter Username" autocomplete="username"/>
+      <div class="field-hint">Default: admin</div>
+
+      <label class="field-label">Password</label>
+      <input class="auth-input" type="password" id="inp-pass" placeholder="Enter Password" autocomplete="current-password"/>
+      <div class="field-hint">Default: admin123</div>
+
+      <button class="btn-signin" onclick="doLogin()">Sign in</button>
+      <div class="auth-error" id="auth-error"></div>
+
+      <div class="or-divider">OR</div>
+      <div class="demo-box">
+        <strong>Demo Credentials</strong>
+        Username: <span class="demo-val">admin</span><br/>
+        Password: <span class="demo-val">admin123</span>
+      </div>
+    </div>
+  </div>
+
+<script src="just.js"></script>
 </body>
 </html>
