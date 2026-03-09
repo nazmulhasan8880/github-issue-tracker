@@ -31,7 +31,7 @@ async function loadIssues() {
     renderCards();
   } catch (err) {
     document.getElementById('cards-grid').innerHTML =
-      '<div class="empty-state">⚠️ Failed to load issues. Please check your connection.</div>';
+      '<div class="empty-state">Failed to load issues. Please check your connection.</div>';
   }
 }
 
